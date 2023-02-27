@@ -74,3 +74,4 @@ crashlytics-build.properties
 # other files
 .DS_Store
 .vsconfig
+.zip
