@@ -4,28 +4,17 @@ using UnityEngine.EventSystems;
 
 public class buttonScript_chooseFellowship : MonoBehaviour
 {
-    private Button button;
-    private Color originalColor;
-    private Color hoverColor;
 
-    private void Awake()
+    public GameObject defaultSelectedButton;
+
+    private void OnEnable()
     {
-        // Get the button component
-        button = GetComponent<Button>();
-
-        // Get the original color of the button
-        originalColor = button.colors.normalColor;
-
-        // Set the hover color to be a slightly darker version of the original color
-        hoverColor = originalColor * 0.9f;
+        EventSystem.current.SetSelectedGameObject(defaultSelectedButton);
     }
 
-    public void doClick()
+    public void SetSelectedButton(GameObject selectedButton)
     {
-        Debug.Log(message: "fellowshipt button clicked");
-        ColorBlock colors = button.colors;
-        colors.normalColor = hoverColor;
-        button.colors = colors;
+        EventSystem.current.SetSelectedGameObject(selectedButton);
     }
 
 }
